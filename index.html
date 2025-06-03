@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamics 360 - Test Demo</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      padding-top: 56px; /* Offset for fixed navbar */
+    }
+    footer {
+      background-color: #f8f9fa;
+      padding: 1rem 0;
+      text-align: center;
+    }
+    .hero-heading {
+      font-size: 3rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">EventFinder</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#hero">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#events">Events</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="hero" class="py-5 text-center bg-light">
+    <div class="container">
+      <h1 class="hero-heading">Dynamics 360</h1>
+      <p>Discover Events Near You</p>
+    </div>
+  </section>
+
+  <!-- Featured Events Section -->
+  <section id="events" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-4">Featured Events</h2>
+      <div class="row mb-4">
+        <div class="col-12">
+          <input type="text" id="searchInput" class="form-control" placeholder="Search events">
+        </div>
+      </div>
+      <div class="row" id="eventsContainer">
+        <!-- Event cards will be inserted here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="text-center mb-4">Contact Us</h2>
+      <p class="text-center">Email: moazfarooq7@gmail.com</p>
+      <p class="text-center">Phone: +923015149519</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Moaz Farooq</p>
+  </footer>
+
+  <!-- Bootstrap 5 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Dummy event data (simulating JSON)
+    const events = [
+      {
+        name: "Music Festival",
+        date: "June 15, 2025",
+        time: "7:00 PM",
+        location: "Central Park",
+        description: "A night of live music featuring local bands."
+      },
+      {
+        name: "Art Exhibition",
+        date: "June 20, 2025",
+        time: "10:00 AM",
+        location: "Downtown Gallery",
+        description: "Showcasing works from local artists."
+      },
+      {
+        name: "Food Truck Fair",
+        date: "June 25, 2025",
+        time: "12:00 PM",
+        location: "City Square",
+        description: "Enjoy a variety of cuisines from food trucks."
+      },
+      {
+        name: "Tech Conference",
+        date: "July 1, 2025",
+        time: "9:00 AM",
+        location: "Convention Center",
+        description: "Learn about the latest in technology."
+      },
+      {
+        name: "Charity Run",
+        date: "July 10, 2025",
+        time: "8:00 AM",
+        location: "Riverside Park",
+        description: "Participate in a run for a good cause."
+      }
+    ];
+
+    // Function to generate event cards
+    function generateEventCards(events) {
+      const container = document.getElementById('eventsContainer');
+      container.innerHTML = '';
+      events.forEach(event => {
+        const card = `
+          <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card h-100">
+              <div class="card-body">
+                <h5 class="card-title">${event.name}</h5>
+                <p class="card-text"><strong>Date:</strong> ${event.date}</p>
+                <p class="card-text"><strong>Time:</strong> ${event.time}</p>
+                <p class="card-text"><strong>Location:</strong> ${event.location}</p>
+                <p class="card-text">${event.description}</p>
+                <button class="btn btn-primary">Register</button>
+              </div>
+            </div>
+          </div>
+        `;
+        container.innerHTML += card;
+      });
+    }
+
+    // Initial load of all events
+    generateEventCards(events);
+
+    // Search functionality
+    document.getElementById('searchInput').addEventListener('input', function() {
+      const searchTerm = this.value.toLowerCase();
+      const filteredEvents = events.filter(event => event.name.toLowerCase().includes(searchTerm));
+      generateEventCards(filteredEvents);
+    });
+  </script>
+</body>
+</html>
