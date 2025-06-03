@@ -22,11 +22,6 @@ Open the index.html file in a web browser.
 
 # **On GitHub Pages**
 
-Create a new repository on GitHub.
-
-Upload the index.html file to the repository.
-
-Go to the repository settings and enable GitHub Pages, selecting the main branch as the source.
 
 Access the webpage at "https://dizzy1s.github.io/Dynamics360-TestDemo/".
 
