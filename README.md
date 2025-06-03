@@ -12,6 +12,7 @@ HTML5: For structuring the content of the webpage.
 Bootstrap 5: For responsive design and styling.
 
 Vanilla JavaScript: For adding interactivity, such as dynamically loading event cards and enabling the search functionality.
+
 Hosted on GitHub Pages: A tool for hosting static websites directly from a GitHub repository.
 
 # **How to Run the Project Locally**
